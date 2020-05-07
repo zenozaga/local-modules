@@ -42,6 +42,28 @@ console.log(localModules.require('@randomNumber')(15));
 
 ```
 
+##### Register a class
+
+```js
+
+const localModules = require("@zenozaga/local-modules");
+
+localModules.register('@Person', class Person{
+
+	talk(){
+		console.log("Hello world!");
+	}
+
+});
+
+var person = new (localModules.require('@Person')) ;
+person.talk();
+
+// Output
+//Hello world!
+
+```
+
 
 ##### Register an Object or Array
 ```js

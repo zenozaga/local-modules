@@ -69,6 +69,8 @@ class Aliases {
 
     add(alias, handlerModuleOrsource) {
 
+        if (!handlerModuleOrsource) throw new Error("Expected 2 arguments, but got 1");
+
         var $this = this;
         var file = this.File();
 
@@ -77,12 +79,15 @@ class Aliases {
 
 
         // validation
-        if (alias && alias.constructor != String) throw Error("alias must be a Stirng subtype");
+        if (alias && alias.constructor != String) throw Error("alias must be a String subtype");
+
 
 
         if (type == "function") {
 
             source = source.toString();
+
+
 
         } else if (type == "object" || type == "array") {
 
@@ -115,14 +120,14 @@ class Aliases {
             } else {
 
                 try {
-                    
+
                     eval(handlerModuleOrsource);
                     source = `(function(){
                         ${handlerModuleOrsource};
-                    })();`;                    
+                    })();`;
 
                 } catch (error) {
-                    
+
                 }
 
             }
@@ -215,8 +220,22 @@ class Aliases {
 
                         } else {
 
-                            var value = fn();
-                            return value ? value : module.exports;
+                            try {
+
+                                var value = fn();
+                                return fn ? value : module.exports;
+
+                            } catch (error) {
+                                
+
+                                if (error.message && error.message.indexOf('Class constructor') == 0) {
+
+                                    return fn;
+
+                                };
+
+                            };
+
 
                         };
 
@@ -227,7 +246,7 @@ class Aliases {
 
                     return eval(source.toString());
 
-                }else if( info.type == "string" ){
+                } else if (info.type == "string") {
 
                     var module__ = eval(source.toString());
                     return module__ ? module__ : module.exports;

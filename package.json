@@ -1,14 +1,14 @@
 {
   "name": "@zenozaga/local-modules",
-  "version": "1.0.5",
-  "description": "Register modules, functions and objects  locally and use them anywhere through aliases",
+  "version": "1.0.8",
+  "description": "Register modules, functions, classes and objects  locally and use them anywhere through aliases",
   "main": "index.js",
   "scripts": {
     "test": "node test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git://local-modules"
+    "url": "https://github.com/zenozaga/local-modules"
   },
   "keywords": [
     "local",
