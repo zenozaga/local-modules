@@ -1,0 +1,21 @@
+{
+  "name": "@zenozaga/local-modules",
+  "version": "1.0.5",
+  "description": "Register modules, functions and objects  locally and use them anywhere through aliases",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://local-modules"
+  },
+  "keywords": [
+    "local",
+    "modules",
+    "zenozaga",
+    "local-modules"
+  ],
+  "author": "zenozaga",
+  "license": "MIT"
+}
