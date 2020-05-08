@@ -95,7 +95,9 @@ class Aliases {
 
         } else if (type == "string") {
 
-            if (path.isAbsolute(handlerModuleOrsource)) {
+            
+ 
+             if (path.isAbsolute(handlerModuleOrsource)) {
 
 
                 try {
@@ -109,9 +111,10 @@ class Aliases {
 
                 } catch (error) {
 
-                    throw Error(`path is incorrect: ${module_path}
-                        - Do not use node_modules
-                    `);
+                    eval(handlerModuleOrsource);
+                    source = `(function(){
+                        ${handlerModuleOrsource};
+                    })();`;                    
 
                 };
 

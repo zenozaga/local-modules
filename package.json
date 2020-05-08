@@ -1,6 +1,6 @@
 {
   "name": "@zenozaga/local-modules",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Register modules, functions, classes and objects  locally and use them anywhere through aliases",
   "main": "index.js",
   "scripts": {
